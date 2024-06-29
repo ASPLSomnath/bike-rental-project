@@ -6,9 +6,11 @@ import traceback
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # Needed for session management
 
+data_base = r'bike_rental.db'
+
 # Database setup
 def init_db():
-    con = sql.connect('sigma.db')
+    con = sql.connect(data_base)
     with con:
         con.execute('''CREATE TABLE IF NOT EXISTS my_database
                        (id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -29,7 +31,7 @@ def register():
             email = request.form['email']
             password = request.form['password']
 
-            con = sql.connect('sigma.db')
+            con = sql.connect(data_base)
             cur = con.cursor()
             cur.execute('''SELECT email FROM my_database WHERE email=?''', (email,))
             if cur.fetchone():
@@ -55,7 +57,7 @@ def login():
             email = request.form['email']
             password = request.form['password']
 
-            con = sql.connect('sigma.db')
+            con = sql.connect(data_base)
             cur = con.cursor()
             cur.execute('''SELECT password FROM my_database WHERE email=?''', (email,))
             result = cur.fetchone()
