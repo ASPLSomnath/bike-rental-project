@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Submit a Query</h2>
+<form method="post">
+    <label for="query">Your Query:</label><br>
+    <textarea name="query" required></textarea><br>
+    <input type="submit" value="Submit Query">
+</form>
+{% endblock %}

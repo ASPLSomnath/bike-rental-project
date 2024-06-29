@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Book a Bike</h2>
+<form method="post" action="{{ url_for('book_bike') }}">
+    <label for="bike_type">Select Bike:</label>
+    <select name="bike_type" required>
+        <option value="Pulsar">Pulsar</option>
+        <option value="Apache">Apache</option>
+        <option value="R15">R15</option>
+    </select><br>
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="quantity" required><br>
+    <label for="hours">Hours:</label>
+    <input type="number" name="hours" required><br>
+    <input type="submit" value="Book">
+</form>
+{% endblock %}

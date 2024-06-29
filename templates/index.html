@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Welcome to Bike Rental</h1>
+{% if 'email' in session %}
+    <p><a href="{{ url_for('bikes_available') }}">Book a Bike</a></p>
+    <p><a href="{{ url_for('query') }}">Submit a Query</a></p>
+{% endif %}
+{% endblock %}
